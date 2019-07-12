@@ -1,13 +1,19 @@
 import React from 'react'
 import './Circles.css'
 
-function Circles(props) {
+const Circles = props => {
     return (
         <div className="Circles">
-            <div type="Circles">1</div>
-            <div type="Circles">2</div>
-            <div type="Circles">3</div>
-            <div type="Circles">4</div>
+            {props.circle.map(circle => (
+                <div
+                    key={circle.id}
+                    name={circle.id}
+                    onClick={() => props.handleClick(circle.id)}
+                    className={circle.id === props.selected ? 'selected' : ''}
+                >
+                    {circle.id}{' '}
+                </div>
+            ))}
         </div>
     )
 }
